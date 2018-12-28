@@ -1,0 +1,11 @@
+X1 = [100*ones(10,1);200*ones(5,1)];
+y1 = X1/100;
+P = X1;
+T = y1;
+net = feedforwardnet([5]);
+net.trainParam.epochs = 1000;
+[net,tr,Y,E] = train(P,T);
+indexes = randperm(15);
+X2 = P(indexes);
+aa = net(X2);
+pc = 100*sum(round(aa)==T(indexes)/15;
